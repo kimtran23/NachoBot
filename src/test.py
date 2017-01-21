@@ -1,12 +1,13 @@
 import requests
 import webbrowser
+import socket
 
 starts = "http://api.sandbox.yellowapi.com"
 business = '/FindBusiness/?'
 apikeys = "gs8tzkby7anduedwey5jtf6s"
 whats = "restaurants"
 wheres = "-79.390898, 43.67057"
-UIDs = "132.205.229.134"
+UIDs = socket.gethostbyname(socket.gethostname())
 
 # listing = "/FindBusiness/?what={what}&{where}&fmt=JSON&UID={UID}&apikey={apikey}"
 # listing = listing.format(what=whats, where=wheres, UID=UIDs, apikey=apikeys)
