@@ -11,4 +11,9 @@ api = tweepy.API(auth)
 public_tweets = api.search(q="%23askYP", count=100)
 for tweet in public_tweets:
     if tweet.place is not None:
-        print("User: {}, tweet: {}, city: {}".format(tweet.user.screen_name, tweet.text, tweet.place.name))
+        location = tweet.place.name
+    else:
+        location = "Montreal"
+
+    print("User: {}, tweet: {}, city: {}".format(
+        tweet.user.screen_name, tweet.text, location))
