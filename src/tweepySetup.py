@@ -10,7 +10,7 @@ def tweetMsg():
 
     tweetlist = list()
     # public_tweets = api.home_timeline()
-    public_tweets = api.search(q="%23askYP", count=100)
+    public_tweets = api.search(q="%23askYP", count=5)
     for tweet in public_tweets:
         if tweet.place is not None:
             location = tweet.place.name
