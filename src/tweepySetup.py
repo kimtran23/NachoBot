@@ -17,3 +17,13 @@ for tweet in public_tweets:
 
     print("User: {}, tweet: {}, city: {}".format(
         tweet.user.screen_name, tweet.text, location))
+
+    words = tweet.text.split()
+    tweetMsg = ""
+    for word in words:
+        if ("#" in word or "@" in word or "RT" in word):
+            continue
+        else:
+            tweetMsg += word + " "
+
+    print(tweetMsg)
