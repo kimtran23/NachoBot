@@ -10,4 +10,5 @@ api = tweepy.API(auth)
 # public_tweets = api.home_timeline()
 public_tweets = api.search(q="%23askYP", count=100)
 for tweet in public_tweets:
-    print("User: {}, tweet: {}".format(tweet.user.screen_name, tweet.text))
+    if tweet.place is not None:
+        print("User: {}, tweet: {}, coordinates: {}".format(tweet.user.screen_name, tweet.text, tweet.place.bounding_box.coordinates))
