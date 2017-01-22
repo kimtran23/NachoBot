@@ -1,7 +1,8 @@
 import tweepy
 
-id = -1;
+id = -1
 name = ""
+
 
 def tweetMsg():
     auth = tweepy.OAuthHandler("P59fg00MtbVNnd0YR9Zq1TZJv",
@@ -16,12 +17,16 @@ def tweetMsg():
     public_tweets = api.search(q="%23askYP", count=1)
     print(public_tweets)
     for tweet in public_tweets:
+        global id
+        global name
         id = tweet.id
         name = tweet.user.screen_name
+
         if tweet.place is not None:
             location = tweet.place.name
         else:
-            api.update_status("Hi @{}, we could not locate you. Let us know by #askYP your closest city!".format(tweet.user.screen_name), in_reply_to_status_id=tweet.id)
+            api.update_status("Hi @{}, we could not locate you. Let us know by #askYP your closest city!".format(
+                tweet.user.screen_name), in_reply_to_status_id=tweet.id)
             location = "Montreal"
 
         print("User: {}, tweet: {}, city: {}".format(
@@ -36,6 +41,7 @@ def tweetMsg():
                 tweetMsg += word + " "
         tweetlist.append(tweetMsg)
     return tweetlist
+
 
 def replyTo(msg):
     auth = tweepy.OAuthHandler("P59fg00MtbVNnd0YR9Zq1TZJv",
