@@ -20,4 +20,4 @@ def getResults(what=None, where=None):
     address = output['listings'][0]['address']['street']
     result = "You can visit " + location + " at " + address
 
-    print(result)
+    return result
