@@ -1,6 +1,7 @@
 import requests
 import socket
 
+
 def getResults(what=None, where=None):
     starts = "http://api.sandbox.yellowapi.com"
     business = '/FindBusiness/?'
@@ -9,14 +10,14 @@ def getResults(what=None, where=None):
     wheres = "Montreal" if where is None else where
     UIDs = socket.gethostbyname(socket.gethostname())
 
-    payload = {'what': whats, 'where': wheres, 'pgLen': 3,
+    payload = {'what': whats, 'where': wheres, 'pgLen': 1,
                'fmt': 'JSON', 'UID': UIDs, 'apikey': apikeys}
 
     r = requests.get(starts + business, params=payload)
 
     output = r.json()
-    for i in range(3):
-        location = output['listings'][i]['name']
+    location = output['listings'][0]['name']
+    address = output['listings'][0]['address']['street']
+    result = "You can visit " + location + " at " + address
 
-        print(location)
-        # Open the URL in a new tab
+    print(result)

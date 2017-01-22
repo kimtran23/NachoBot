@@ -1,5 +1,6 @@
 import tweepy
 
+
 def tweetMsg():
     auth = tweepy.OAuthHandler("P59fg00MtbVNnd0YR9Zq1TZJv",
                                "mJxrGLjiqcDREuI5ow3iBNuEyUjDQNsQgqm6jXJKL2BibuBXtD")

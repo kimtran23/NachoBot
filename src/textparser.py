@@ -27,12 +27,10 @@ for s in sentenceList:
                 flag.append(idx)
 
         lastind = 0
-        print(len(flag))
-        print(len(responselist))
+
         if len(flag) != 0:
             for i in flag:
                 if wordlist[i + 1] == "NN" or wordlist[i + 1] == "NNS" or wordlist[i + 1] == "NNP" or wordlist[i + 1] == "NNPS":
-                   #  print(i)
                     specialword.append(responselist[i + 1])
                     lastind = i
                     break
@@ -42,5 +40,5 @@ for s in sentenceList:
                     specialword.append(responselist[lastind + 2])
             except IndexError:
                 pass
-        print (sentence)
+
     ypQuery.getResults(what=','.join(specialword))
