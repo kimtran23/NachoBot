@@ -21,12 +21,12 @@ for s in sentenceList:
         specialword = []
 
         for idx, word in enumerate(wordlist):
-            if word == "VB" or word == "VBP" or word == "TO" or word == "DT" or word == "JJ" or word == "JJS":
+            if word == "VB" or word == "VBP" or word == "TO" or word == "DT" or word == "JJ" or word == "JJS" or word=="VBD":
                 flag.append(idx)
 
         lastind = 0
-        print(len(flag))
-        print(len(responselist))
+        # print(len(flag))
+        # print(len(responselist))
         if len(flag) != 0:
             for i in flag:
                 if wordlist[i + 1] == "NN" or wordlist[i + 1] == "NNS" or wordlist[i + 1] == "NNP" or wordlist[i + 1] == "NNPS":

@@ -1,6 +1,8 @@
 import requests
 import webbrowser
 import socket
+import tweepySetup
+import textparser
 
 starts = "http://api.sandbox.yellowapi.com"
 business = '/FindBusiness/?'
@@ -9,11 +11,14 @@ whats = "restaurants"
 wheres = "Montreal"
 UIDs = socket.gethostbyname(socket.gethostname())
 
-# listing = "/FindBusiness/?what={what}&{where}&fmt=JSON&UID={UID}&apikey={apikey}"
-# listing = listing.format(what=whats, where=wheres, UID=UIDs, apikey=apikeys)
-payload = {'what': whats, 'where': wheres,
+payload = {'what': whats, 'where': wheres, 'pgLen':3,
            'fmt': 'JSON', 'UID': UIDs, 'apikey': apikeys}
 
 r = requests.get(starts + business, params=payload)
+
+output = r.json()
+for i in range(3):
+    location = output['listings'][i]['name']
+
+    print(location)
 # Open the URL in a new tab
-webbrowser.open_new_tab(r.url)
