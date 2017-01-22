@@ -15,7 +15,7 @@ def tweetMsg():
     tweetlist = list()
     # public_tweets = api.home_timeline()
     public_tweets = api.search(q="%23askYP", count=1)
-    print(public_tweets)
+
     for tweet in public_tweets:
         global id
         global name
