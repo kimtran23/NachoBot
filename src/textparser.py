@@ -1,10 +1,12 @@
 import textrazor
 import tweepySetup
 import string
+import ypQuery
 
 textrazor.api_key = "d1103f73c05ca5009594951423c82b86c45df568afebc6df42f20769"
 
 sentenceList = tweepySetup.tweetMsg()
+print(sentenceList)
 exclude = set(string.punctuation)
 for s in sentenceList:
     sentence = ''.join(ch for ch in s if ch not in exclude)
@@ -21,12 +23,12 @@ for s in sentenceList:
         specialword = []
 
         for idx, word in enumerate(wordlist):
-            if word == "VB" or word == "VBP" or word == "TO" or word == "DT" or word == "JJ" or word == "JJS" or word=="VBD":
+            if word == "VB" or word == "VBP" or word == "TO" or word == "DT" or word == "JJ" or word == "JJS":
                 flag.append(idx)
 
         lastind = 0
-        # print(len(flag))
-        # print(len(responselist))
+        print(len(flag))
+        print(len(responselist))
         if len(flag) != 0:
             for i in flag:
                 if wordlist[i + 1] == "NN" or wordlist[i + 1] == "NNS" or wordlist[i + 1] == "NNP" or wordlist[i + 1] == "NNPS":
@@ -41,4 +43,4 @@ for s in sentenceList:
             except IndexError:
                 pass
         print (sentence)
-        print(specialword)
+    ypQuery.getResults(what=','.join(specialword))
