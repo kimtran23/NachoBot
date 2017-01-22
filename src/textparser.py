@@ -40,5 +40,4 @@ for s in sentenceList:
                     specialword.append(responselist[lastind + 2])
             except IndexError:
                 pass
-
-    ypQuery.getResults(what=','.join(specialword))
+    tweepySetup.replyTo(ypQuery.getResults(what=','.join(specialword)))

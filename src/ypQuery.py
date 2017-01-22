@@ -21,3 +21,4 @@ def getResults(what=None, where=None):
     result = "You can visit " + location + " at " + address
 
     print(result)
+    return result
